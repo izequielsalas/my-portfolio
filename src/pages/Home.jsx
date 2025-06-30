@@ -33,8 +33,8 @@ function Home() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto drop-shadow-lg">
-              CS grad with 12+ years in business, now crafting web applications 
-              that solve real problems for real companies.
+              CS Grad With 12+ Years In The Print Business, Now Crafting Web Applications 
+              That Solve Real Problems For Real Companies.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -106,7 +106,7 @@ function Home() {
               <div>
                 <h4 className="font-semibold text-white mb-3">Frontend</h4>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {['React', 'JavaScript', 'Tailwind CSS', 'HTML5'].map(skill => (
+                  {['React', 'JavaScript', 'Tailwind CSS', 'Three.js'].map(skill => (
                     <span key={skill} className="px-3 py-1 bg-blue-400/20 text-blue-200 rounded-full text-sm backdrop-blur-sm border border-blue-300/20">
                       {skill}
                     </span>
@@ -128,7 +128,7 @@ function Home() {
               <div>
                 <h4 className="font-semibold text-white mb-3">Business</h4>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {['12+ Years', 'Client Relations', 'Project Management'].map(skill => (
+                  {['Small Business', 'Client Relations', 'Project Management', 'Sales', 'Automation'].map(skill => (
                     <span key={skill} className="px-3 py-1 bg-purple-400/20 text-purple-200 rounded-full text-sm backdrop-blur-sm border border-purple-300/20">
                       {skill}
                     </span>
