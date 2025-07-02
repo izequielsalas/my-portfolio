@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Button from './Button'
+import logoImage from '../assets/IsaacClipArt_Coder.png'
 
 function GlassHeader({ logo = "Izequiel Salas", links = [] }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -23,9 +24,11 @@ function GlassHeader({ logo = "Izequiel Salas", links = [] }) {
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0">
               <Link to="/">
-                <h1 className="text-xl font-bold text-white drop-shadow-lg">
-                  {logo}
-                </h1>
+                <img 
+                  src={logoImage} 
+                  alt="Isaac Ezequiel Salas - Full Stack Developer" 
+                  className="h-12 w-12 rounded-full object-cover ring-2 ring-white/30 hover:ring-white/50 transition-all duration-300 hover:scale-105"
+                />
               </Link>
             </div>
             

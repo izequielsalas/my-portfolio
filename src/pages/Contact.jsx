@@ -207,7 +207,7 @@ function Contact() {
                     className={getInputClasses('project')}
                     disabled={isSubmitting}
                   >
-                    <option value="" className="bg-gray-800 text-white">Select a project type</option>
+                    <option value="" className="bg-gray-800 text-white">Select</option>
                     <option value="website" className="bg-gray-800 text-white">Business Website</option>
                     <option value="webapp" className="bg-gray-800 text-white">Web Application</option>
                     <option value="ecommerce" className="bg-gray-800 text-white">E-commerce Store</option>
@@ -228,7 +228,7 @@ function Contact() {
                     className={getInputClasses('budget')}
                     disabled={isSubmitting}
                   >
-                    <option value="" className="bg-gray-800 text-white">Select budget range</option>
+                    <option value="" className="bg-gray-800 text-white"> Select</option>
                     <option value="under-1k" className="bg-gray-800 text-white">Under $1,000</option>
                     <option value="1-5k" className="bg-gray-800 text-white">$1,000 - $5,000</option>
                     <option value="5-10k" className="bg-gray-800 text-white">$5,000 - $10,000</option>

@@ -1,6 +1,7 @@
 import Button from '../components/Button'
 import GlassCard from '../components/GlassCard'
 import profilePhoto from '../assets/IsaacClipArt_Coder.png'
+import { Link } from 'react-router-dom'
 
 function About() {
   return (
@@ -170,8 +171,16 @@ function About() {
             Let's talk about your project and how my unique background can help your business grow.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="solid" size="lg">Let's Work Together</Button>
-            <Button variant="glass" size="lg">View My Projects</Button>
+            <Link to="/contact">
+              <Button variant="solid" size="lg">
+                Let's Work Together!
+              </Button>
+            </Link>
+            <Link to="/projects">
+              <Button variant="glass" size="lg">
+                View My Projects
+              </Button>
+            </Link>
           </div>
         </GlassCard>
       </div>

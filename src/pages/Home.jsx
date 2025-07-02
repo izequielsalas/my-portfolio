@@ -57,8 +57,8 @@ function Home() {
             </div>
           </div>
           
-          {/* Feature cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {/* Feature cards - UPDATED: Portfolio removed, grid changed to 3 columns */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             <Link to="/about" className="block group">
               <GlassCard variant="subtle" className="h-full group-hover:scale-105 transition-all duration-300">
                 <div className="text-center">
@@ -75,16 +75,6 @@ function Home() {
                   <div className="text-4xl mb-4">🚀</div>
                   <h3 className="font-semibold text-white mb-2">Projects</h3>
                   <p className="text-white/70 text-sm">Real solutions built</p>
-                </div>
-              </GlassCard>
-            </Link>
-            
-            <Link to="/portfolio" className="block group">
-              <GlassCard variant="subtle" className="h-full group-hover:scale-105 transition-all duration-300">
-                <div className="text-center">
-                  <div className="text-4xl mb-4">💼</div>
-                  <h3 className="font-semibold text-white mb-2">Portfolio</h3>
-                  <p className="text-white/70 text-sm">Component showcase</p>
                 </div>
               </GlassCard>
             </Link>
