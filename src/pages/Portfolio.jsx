@@ -1,65 +1,49 @@
 import Button from '../components/Button'
 import GlassCard from '../components/GlassCard'
+import proofingAppDashboard from '../assets/projects/proofingApp-dashboard.png'
+import proofingAppLogin from '../assets/projects/proofingApp-login.png'
+import stickershopHero from '../assets/projects/stickershop-hero.png'
+import stickershopCard from '../assets/projects/stickershop-card.png'
+import portfolioHero from '../assets/projects/3d-portfolio-hero.png'
+import portfolioHover from '../assets/projects/3d-portfolio-hover.png'
 
 function Portfolio() {
   const portfolioItems = [
     {
       id: 1,
-      title: "E-commerce Platform",
-      subtitle: "React, Stripe, Firebase",
-      description: "Full-stack e-commerce application with payment processing and inventory management. Modern glassmorphic design with smooth animations.",
-      image: "https://picsum.photos/400/200?random=1",
-      category: "Web Application",
-      tech: ["React", "Stripe", "Firebase", "Tailwind CSS"]
+      title: "PrintPro Proofing System",
+      subtitle: "React, Node.js, Firebase, Stripe",
+      description: "Complete digital proofing workflow for print shops. Built from 12 years of industry experience, this system streamlines client approvals and eliminates revision confusion.",
+      image: proofingAppLogin,
+      category: "B2B Web Application",
+      tech: ["React", "Node.js", "Firebase", "Stripe", "Material-UI", "Express"],
+              highlights: ["Beta Testing", "Industry Solution", "Active Development"]
     },
     {
       id: 2,
-      title: "Task Manager Pro",
-      subtitle: "React, Node.js, MongoDB",
-      description: "Collaborative task management tool with real-time updates and team features. Built with modern glassmorphism design principles.",
-      image: "https://picsum.photos/400/200?random=2",
-      category: "SaaS Platform",
-      tech: ["React", "Node.js", "MongoDB", "Socket.io"]
+      title: "StickerShop Landing Page",
+      subtitle: "Next.js, Tailwind CSS, Stripe API",
+      description: "High-converting e-commerce landing page with product customization and instant quotes. A/B tested design achieved 45% higher conversion rates.",
+      image: stickershopCard,
+      category: "E-commerce Landing",
+      tech: ["Next.js", "Tailwind CSS", "Stripe API", "Framer Motion", "Vercel"],
+      highlights: ["45% Higher Conversion", "Mobile Optimized", "A/B Tested"],
+      liveUrl: "https://sticker-shop-nine.vercel.app"
     },
     {
       id: 3,
-      title: "Weather Dashboard",
-      subtitle: "Vanilla JS, API Integration",
-      description: "Clean weather application with location detection and 7-day forecasts. Features beautiful glassmorphic cards and smooth animations.",
-      image: "https://picsum.photos/400/200?random=3",
-      category: "Web App",
-      tech: ["JavaScript", "Weather API", "CSS3", "HTML5"]
-    },
-    {
-      id: 4,
-      title: "Portfolio Website",
-      subtitle: "React, Tailwind CSS",
-      description: "Modern portfolio website showcasing glassmorphism design trends. Fully responsive with smooth animations and interactive elements.",
-      image: "https://picsum.photos/400/200?random=4",
-      category: "Portfolio",
-      tech: ["React", "Tailwind CSS", "Framer Motion", "Netlify"]
-    },
-    {
-      id: 5,
-      title: "Business Landing Page",
-      subtitle: "Next.js, TypeScript",
-      description: "High-converting landing page for SaaS business. Features modern design, A/B testing capabilities, and conversion optimization.",
-      image: "https://picsum.photos/400/200?random=5",
-      category: "Landing Page",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"]
-    },
-    {
-      id: 6,
-      title: "Component Library",
-      subtitle: "React, Storybook",
-      description: "Comprehensive glassmorphic component library with documentation. Reusable components following modern design principles.",
-      image: "https://picsum.photos/400/200?random=6",
-      category: "Design System",
-      tech: ["React", "Storybook", "TypeScript", "CSS Modules"]
+      title: "3D Interactive Portfolio",
+      subtitle: "Three.js, React, WebGL",
+      description: "Immersive 3D portfolio showcasing projects in virtual environments. Features smooth animations, interactive scenes, and responsive 3D elements.",
+      image: portfolioHover,
+      category: "3D Web Experience",
+      tech: ["Three.js", "React", "WebGL", "GSAP", "Blender", "React Three Fiber"],
+      highlights: ["WebGL Performance", "Mobile Compatible", "Interactive Scenes"],
+      liveUrl: "https://three-practice-seven.vercel.app"
     }
   ]
 
-  const categories = ["All", "Web Application", "SaaS Platform", "Web App", "Portfolio", "Landing Page", "Design System"]
+  const categories = ["All", "B2B Web Application", "E-commerce Landing", "3D Web Experience"]
 
   return (
     <div className="min-h-screen relative">
@@ -86,7 +70,7 @@ function Portfolio() {
             My Portfolio
           </h1>
           <p className="text-xl text-white/80 max-w-2xl mx-auto drop-shadow-sm">
-            A showcase of modern web applications built with cutting-edge technologies and glassmorphic design principles.
+            Real-world applications built with modern technologies and deep industry knowledge. Each project solves actual business problems.
           </p>
         </GlassCard>
 
@@ -112,62 +96,66 @@ function Portfolio() {
           <div className="grid md:grid-cols-2 gap-8">
             <GlassCard variant="strong" className="group hover:scale-105 transition-all duration-300">
               <img 
-                src="https://picsum.photos/600/300?random=featured1" 
-                alt="Featured work"
+                src={proofingAppDashboard} 
+                alt="PrintPro Proofing System"
                 className="w-full h-48 object-cover rounded-t-xl"
               />
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="px-3 py-1 bg-emerald-400/20 text-emerald-200 rounded-full text-sm font-medium backdrop-blur-sm border border-emerald-300/20">
-                    Featured
+                  <span className="px-3 py-1 bg-blue-400/20 text-blue-200 rounded-full text-sm font-medium backdrop-blur-sm border border-blue-300/20">
+                    Beta Testing
                   </span>
-                  <span className="text-white/60 text-sm">Full-Stack Application</span>
+                  <span className="text-white/60 text-sm">B2B Application</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3 drop-shadow-sm">SaaS Dashboard Platform</h3>
+                <h3 className="text-2xl font-bold text-white mb-3 drop-shadow-sm">PrintPro Proofing System</h3>
                 <p className="text-white/80 mb-4 drop-shadow-sm">
-                  Comprehensive business intelligence dashboard with real-time analytics, user management, and subscription billing.
+                  Revolutionary digital proofing system currently transforming workflow at Cesargraphics. Built from 12 years of print industry experience and showing promising results in beta testing.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {['React', 'Node.js', 'PostgreSQL', 'Stripe'].map(tech => (
+                  {['React', 'Node.js', 'Firebase', 'Stripe'].map(tech => (
                     <span key={tech} className="px-2 py-1 bg-teal-400/20 text-teal-200 rounded text-xs backdrop-blur-sm border border-teal-300/20">
                       {tech}
                     </span>
                   ))}
                 </div>
                 <div className="flex gap-3">
-                  <Button variant="solid" size="sm">Live Demo</Button>
-                  <Button variant="glass" size="sm">View Code</Button>
+                  <a href="https://proofingapp1.web.app" target="_blank" rel="noopener noreferrer">
+                    <Button variant="solid" size="sm">Watch Demo</Button>
+                  </a>
+                  <Button variant="glass" size="sm">View Screenshots</Button>
                 </div>
               </div>
             </GlassCard>
 
             <GlassCard variant="strong" className="group hover:scale-105 transition-all duration-300">
               <img 
-                src="https://picsum.photos/600/300?random=featured2" 
-                alt="Featured work"
+                src={portfolioHero} 
+                alt="3D Interactive Portfolio"
                 className="w-full h-48 object-cover rounded-t-xl"
               />
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="px-3 py-1 bg-cyan-400/20 text-cyan-200 rounded-full text-sm font-medium backdrop-blur-sm border border-cyan-300/20">
-                    Award Winner
+                    Technical Showcase
                   </span>
-                  <span className="text-white/60 text-sm">E-commerce Platform</span>
+                  <span className="text-white/60 text-sm">3D Web Experience</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3 drop-shadow-sm">Boutique Online Store</h3>
+                <h3 className="text-2xl font-bold text-white mb-3 drop-shadow-sm">3D Interactive Portfolio</h3>
                 <p className="text-white/80 mb-4 drop-shadow-sm">
-                  Award-winning e-commerce platform with inventory management, order tracking, and integrated payment solutions.
+                  Immersive WebGL portfolio featuring interactive 3D scenes, smooth animations, and responsive design. Demonstrates advanced frontend capabilities.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {['Next.js', 'Shopify API', 'Tailwind', 'Vercel'].map(tech => (
+                  {['Three.js', 'WebGL', 'React', 'GSAP'].map(tech => (
                     <span key={tech} className="px-2 py-1 bg-cyan-400/20 text-cyan-200 rounded text-xs backdrop-blur-sm border border-cyan-300/20">
                       {tech}
                     </span>
                   ))}
                 </div>
                 <div className="flex gap-3">
-                  <Button variant="solid" size="sm">Live Demo</Button>
-                  <Button variant="glass" size="sm">Case Study</Button>
+                  <a href="https://three-practice-seven.vercel.app" target="_blank" rel="noopener noreferrer">
+                    <Button variant="solid" size="sm">Explore 3D</Button>
+                  </a>
+                  <Button variant="glass" size="sm">View Code</Button>
                 </div>
               </div>
             </GlassCard>
@@ -195,9 +183,19 @@ function Portfolio() {
                   <h3 className="text-lg font-semibold text-white mb-2 drop-shadow-sm">{item.title}</h3>
                   <p className="text-white/70 text-sm mb-3 drop-shadow-sm">{item.description}</p>
                   
+                  {/* Highlights */}
+                  <div className="flex flex-wrap gap-1 mb-3">
+                    {item.highlights.map(highlight => (
+                      <span key={highlight} className="px-2 py-1 bg-emerald-400/20 text-emerald-200 rounded text-xs backdrop-blur-sm border border-emerald-300/20">
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  {/* Tech stack */}
                   <div className="flex flex-wrap gap-1 mb-4">
                     {item.tech.slice(0, 3).map(tech => (
-                      <span key={tech} className="px-2 py-1 bg-emerald-400/20 text-emerald-200 rounded text-xs backdrop-blur-sm border border-emerald-300/20">
+                      <span key={tech} className="px-2 py-1 bg-blue-400/20 text-blue-200 rounded text-xs backdrop-blur-sm border border-blue-300/20">
                         {tech}
                       </span>
                     ))}
@@ -209,8 +207,10 @@ function Portfolio() {
                   </div>
                   
                   <div className="flex gap-2">
-                    <Button variant="primary" size="sm" className="flex-1">Demo</Button>
-                    <Button variant="outline" size="sm" className="flex-1">Code</Button>
+                    <a href={item.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                      <Button variant="primary" size="sm" className="w-full">View Demo</Button>
+                    </a>
+                    <Button variant="outline" size="sm" className="flex-1">Learn More</Button>
                   </div>
                 </div>
               </GlassCard>
@@ -220,13 +220,13 @@ function Portfolio() {
 
         {/* Skills Showcase */}
         <GlassCard variant="colored" className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center drop-shadow-sm">Technologies I Love</h2>
+          <h2 className="text-2xl font-bold text-white mb-8 text-center drop-shadow-sm">Real-World Experience</h2>
           <div className="grid md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-4xl mb-3">⚛️</div>
-              <h3 className="font-semibold text-white mb-2">Frontend</h3>
+              <div className="text-4xl mb-3">🖨️</div>
+              <h3 className="font-semibold text-white mb-2">Print Industry</h3>
               <div className="flex flex-wrap gap-1 justify-center">
-                {['React', 'Next.js', 'TypeScript', 'Tailwind'].map(skill => (
+                {['12+ Years', 'Workflow Design', 'Client Relations', 'Project Management'].map(skill => (
                   <span key={skill} className="px-2 py-1 bg-blue-400/20 text-blue-200 rounded-full text-xs backdrop-blur-sm border border-blue-300/20">
                     {skill}
                   </span>
@@ -235,10 +235,10 @@ function Portfolio() {
             </div>
             
             <div>
-              <div className="text-4xl mb-3">🚀</div>
-              <h3 className="font-semibold text-white mb-2">Backend</h3>
+              <div className="text-4xl mb-3">⚛️</div>
+              <h3 className="font-semibold text-white mb-2">Frontend</h3>
               <div className="flex flex-wrap gap-1 justify-center">
-                {['Node.js', 'Python', 'Express', 'PostgreSQL'].map(skill => (
+                {['React', 'Next.js', 'Three.js', 'Tailwind'].map(skill => (
                   <span key={skill} className="px-2 py-1 bg-green-400/20 text-green-200 rounded-full text-xs backdrop-blur-sm border border-green-300/20">
                     {skill}
                   </span>
@@ -247,10 +247,10 @@ function Portfolio() {
             </div>
             
             <div>
-              <div className="text-4xl mb-3">☁️</div>
-              <h3 className="font-semibold text-white mb-2">Cloud</h3>
+              <div className="text-4xl mb-3">🚀</div>
+              <h3 className="font-semibold text-white mb-2">Full Stack</h3>
               <div className="flex flex-wrap gap-1 justify-center">
-                {['Vercel', 'Netlify', 'Firebase', 'AWS'].map(skill => (
+                {['Node.js', 'Firebase', 'APIs', 'Databases'].map(skill => (
                   <span key={skill} className="px-2 py-1 bg-purple-400/20 text-purple-200 rounded-full text-xs backdrop-blur-sm border border-purple-300/20">
                     {skill}
                   </span>
@@ -259,10 +259,10 @@ function Portfolio() {
             </div>
             
             <div>
-              <div className="text-4xl mb-3">🎨</div>
-              <h3 className="font-semibold text-white mb-2">Design</h3>
+              <div className="text-4xl mb-3">💼</div>
+              <h3 className="font-semibold text-white mb-2">Business Focus</h3>
               <div className="flex flex-wrap gap-1 justify-center">
-                {['Figma', 'Glassmorphism', 'UX/UI', 'Responsive'].map(skill => (
+                {['ROI Driven', 'User Experience', 'Problem Solving', 'Scalability'].map(skill => (
                   <span key={skill} className="px-2 py-1 bg-pink-400/20 text-pink-200 rounded-full text-xs backdrop-blur-sm border border-pink-300/20">
                     {skill}
                   </span>
@@ -274,9 +274,9 @@ function Portfolio() {
 
         {/* CTA Section */}
         <GlassCard variant="strong" className="text-center">
-          <h2 className="text-3xl font-bold text-white mb-4 drop-shadow-sm">Let's Create Something Amazing</h2>
+          <h2 className="text-3xl font-bold text-white mb-4 drop-shadow-sm">Ready to Build Something Real?</h2>
           <p className="text-white/80 mb-6 max-w-2xl mx-auto drop-shadow-sm">
-            Ready to bring your ideas to life with modern technology and stunning design? Let's work together!
+            These projects represent solutions to actual business challenges. Let's discuss how I can solve yours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="solid" size="lg">Start a Project</Button>
