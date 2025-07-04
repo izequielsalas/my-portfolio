@@ -12,6 +12,10 @@ import stickershopMobileCheckout from '../assets/projects/stickershop-mobile-che
 import portfolioHero from '../assets/projects/3d-portfolio-hero.png'
 import portfolioHover from '../assets/projects/3d-portfolio-hover.png'
 import portfolioMobile from '../assets/projects/3d-portfolio-mobile.png'
+// TODO: Add your onboard-tracker screenshots to assets/projects/ folder
+import onboardDashboard from '../assets/projects/onboard-dashboard.png' // You'll need to add this
+import onboardProgress from '../assets/projects/onboard-progress.png' // You'll need to add this
+import onboardApprentice from '../assets/projects/onboard-apprentice.png' // You'll need to add this
 
 function Projects() {
   const projects = [
@@ -41,6 +45,30 @@ function Projects() {
     },
     {
       id: 2,
+      title: "Apprentice Onboarding Tracker",
+      subtitle: "React, Node.js, Database Management",
+      description: "Early-stage workforce management system designed for tracking apprentice training progress and onboarding workflows. Built from understanding the challenges of managing structured learning programs across skilled trades and corporate training environments.",
+      image: onboardDashboard,
+      liveUrl: "https://onboard-tracker.netlify.app",
+      codeUrl: "https://github.com/yourusername/onboard-tracker", // Update with your actual repo
+      status: "Early Development",
+      category: "Enterprise Application",
+      features: [
+        "Progress Tracking System",
+        "Training Milestone Management",
+        "User Role Management",
+        "Onboarding Workflow Design",
+        "Data Visualization",
+        "Mobile-Responsive Interface",
+        "Apprentice Profile Management",
+        "Skills Assessment Framework"
+      ],
+      techStack: ["React", "Node.js", "Database", "Chart.js", "Material-UI", "Express", "Authentication"],
+      highlights: ["Enterprise Focus", "Workforce Management", "Active Development"],
+      gallery: [onboardDashboard, onboardProgress, onboardApprentice]
+    },
+    {
+      id: 3,
       title: "StickerShop Landing Page", 
       subtitle: "Next.js, Tailwind CSS, Stripe API",
       description: "Demo e-commerce landing page showcasing modern conversion-focused design. Features product customization interface, dynamic pricing calculator, and streamlined checkout flow. Built to demonstrate e-commerce development skills and user experience optimization.",
@@ -64,7 +92,7 @@ function Projects() {
       gallery: [stickershopHero, stickershopCard, stickershopMobileCheckout]
     },
     {
-      id: 3,
+      id: 4,
       title: "3D Interactive Portfolio",
       subtitle: "Three.js, React, WebGL",
       description: "Experimental 3D portfolio website demonstrating advanced WebGL capabilities. Features interactive virtual environments, smooth animations, and touch-optimized controls. A technical showcase exploring the boundaries of web-based 3D experiences.",
@@ -89,7 +117,7 @@ function Projects() {
     }
   ]
 
-  const categories = ["All", "B2B Web Application", "E-commerce Demo", "3D Web Experience"]
+  const categories = ["All", "B2B Web Application", "Enterprise Application", "E-commerce Demo", "3D Web Experience"]
 
   return (
     <div className="min-h-screen relative">
@@ -185,7 +213,7 @@ function Projects() {
         {/* All Projects Grid */}
         <div className="mb-16">
           <h2 className="text-2xl font-bold text-white mb-8 drop-shadow-sm">All Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
             {projects.map(project => (
               <GlassCard key={project.id} variant="default" className="h-full flex flex-col group hover:scale-105 transition-all duration-300">
                 <div className="relative">
@@ -214,6 +242,8 @@ function Projects() {
                     <span className={`px-2 py-1 rounded-full text-xs font-medium backdrop-blur-sm border ${
                       project.status === 'In Development' 
                         ? 'bg-blue-400/20 text-blue-200 border-blue-300/20' 
+                        : project.status === 'Early Development'
+                        ? 'bg-orange-400/20 text-orange-200 border-orange-300/20'
                         : project.status === 'Demo Project'
                         ? 'bg-green-400/20 text-green-200 border-green-300/20'
                         : 'bg-purple-400/20 text-purple-200 border-purple-300/20'
@@ -268,7 +298,8 @@ function Projects() {
                         size="sm" 
                         className="w-full"
                       >
-                        {project.status === 'In Development' ? 'View Beta' : 'Live Demo'}
+                        {project.status === 'In Development' ? 'View Beta' : 
+                         project.status === 'Early Development' ? 'View Progress' : 'Live Demo'}
                       </Button>
                     </a>
                   </div>
@@ -290,7 +321,8 @@ function Projects() {
               </div>
               <p className="text-white/80 mb-4">
                 My best projects come from experiencing real frustrations in my 12+ years in the print industry. 
-                PrintPro isn't just a coding exercise - it's solving problems I've lived with daily.
+                PrintPro isn't just a coding exercise - it's solving problems I've lived with daily. The Onboarding Tracker 
+                addresses workforce management challenges I've witnessed across multiple business environments.
               </p>
               <ul className="text-white/70 space-y-2 text-sm">
                 <li>• Industry experience drives better solutions</li>
@@ -308,12 +340,12 @@ function Projects() {
               </div>
               <p className="text-white/80 mb-4">
                 Each project pushes my technical boundaries. From mastering Firebase real-time features 
-                to exploring WebGL performance optimization - always growing.
+                to exploring WebGL performance optimization to building complex workforce management systems - always growing.
               </p>
               <ul className="text-white/70 space-y-2 text-sm">
                 <li>• Modern JavaScript frameworks & libraries</li>
                 <li>• Full-stack development capabilities</li>
-                <li>• Performance optimization techniques</li>
+                <li>• Enterprise application architecture</li>
                 <li>• User experience design principles</li>
               </ul>
             </GlassCard>
@@ -340,7 +372,7 @@ function Projects() {
               <div className="text-4xl mb-3">🚀</div>
               <h3 className="font-semibold text-white mb-2">Backend</h3>
               <div className="flex flex-wrap gap-1 justify-center">
-                {['Node.js', 'Firebase', 'Express', 'Firestore'].map(skill => (
+                {['Node.js', 'Firebase', 'Express', 'Databases'].map(skill => (
                   <span key={skill} className="px-2 py-1 bg-green-400/20 text-green-200 rounded-full text-xs backdrop-blur-sm border border-green-300/20">
                     {skill}
                   </span>
@@ -352,7 +384,7 @@ function Projects() {
               <div className="text-4xl mb-3">💳</div>
               <h3 className="font-semibold text-white mb-2">Integration</h3>
               <div className="flex flex-wrap gap-1 justify-center">
-                {['Stripe', 'WebGL', 'APIs', 'PWA'].map(skill => (
+                {['Stripe', 'WebGL', 'APIs', 'Charts'].map(skill => (
                   <span key={skill} className="px-2 py-1 bg-purple-400/20 text-purple-200 rounded-full text-xs backdrop-blur-sm border border-purple-300/20">
                     {skill}
                   </span>
@@ -364,7 +396,7 @@ function Projects() {
               <div className="text-4xl mb-3">💼</div>
               <h3 className="font-semibold text-white mb-2">Industry</h3>
               <div className="flex flex-wrap gap-1 justify-center">
-                {['Print Workflow', 'E-commerce', 'B2B Systems', 'UX Design'].map(skill => (
+                {['Print Workflow', 'E-commerce', 'B2B Systems', 'Enterprise Apps'].map(skill => (
                   <span key={skill} className="px-2 py-1 bg-pink-400/20 text-pink-200 rounded-full text-xs backdrop-blur-sm border border-pink-300/20">
                     {skill}
                   </span>
@@ -378,7 +410,7 @@ function Projects() {
         <GlassCard variant="strong" className="text-center">
           <h2 className="text-3xl font-bold text-white mb-4 drop-shadow-sm">Let's Build Something Together</h2>
           <p className="text-xl text-white/80 mb-6 drop-shadow-sm">
-            Whether you need a real business solution or want to explore creative possibilities, 
+            Whether you need a real business solution, enterprise application, or want to explore creative possibilities, 
             I bring both technical skills and industry understanding to every project.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
