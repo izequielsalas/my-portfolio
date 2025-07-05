@@ -58,7 +58,8 @@ function Contact() {
     }
   }
 
-  const handleSubmit = async (e) => {
+  // OPTION 1: Formspree (Recommended - works everywhere)
+  const handleSubmitFormspree = async (e) => {
     e.preventDefault()
     
     if (!validateForm()) {
@@ -68,12 +69,75 @@ function Contact() {
     setIsSubmitting(true)
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      const response = await fetch('https://formspree.io/f/xkgbaggd', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          project: formData.project,
+          budget: formData.budget,
+          message: formData.message,
+          _subject: `New Contact Form Submission from ${formData.name}`,
+        }),
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+        setFormData({
+          name: '',
+          email: '',
+          project: '',
+          budget: '',
+          message: ''
+        })
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => setSubmitted(false), 5000)
+      } else {
+        throw new Error('Form submission failed')
+      }
       
-      // For now, just log the data. Later integrate with Netlify Forms, Formspree, or EmailJS
-      console.log('Form submitted:', formData)
+    } catch (error) {
+      console.error('Form submission error:', error)
+      alert('Sorry, there was an error sending your message. Please try emailing me directly at isaac@isaacezequielsalas.com')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  // OPTION 2: EmailJS (Client-side email sending)
+  const handleSubmitEmailJS = async (e) => {
+    e.preventDefault()
+    
+    if (!validateForm()) {
+      return
+    }
+
+    setIsSubmitting(true)
+
+    try {
+      // You'll need to install emailjs: npm install @emailjs/browser
+      const { send } = await import('@emailjs/browser')
       
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        project_type: formData.project,
+        budget_range: formData.budget,
+        message: formData.message,
+        to_name: 'Isaac',
+      }
+
+      await send(
+        'YOUR_SERVICE_ID',    // From EmailJS dashboard
+        'YOUR_TEMPLATE_ID',   // From EmailJS dashboard  
+        templateParams,
+        'YOUR_PUBLIC_KEY'     // From EmailJS dashboard
+      )
+
       setSubmitted(true)
       setFormData({
         name: '',
@@ -83,16 +147,64 @@ function Contact() {
         message: ''
       })
       
-      // Reset success message after 5 seconds
       setTimeout(() => setSubmitted(false), 5000)
       
     } catch (error) {
-      console.error('Form submission error:', error)
-      alert('Sorry, there was an error sending your message. Please try again.')
+      console.error('EmailJS error:', error)
+      alert('Sorry, there was an error sending your message. Please try emailing me directly at isaac@isaacezequielsalas.com')
     } finally {
       setIsSubmitting(false)
     }
   }
+
+  // OPTION 3: Netlify Forms (if deploying to Netlify)
+  const handleSubmitNetlify = async (e) => {
+    e.preventDefault()
+    
+    if (!validateForm()) {
+      return
+    }
+
+    setIsSubmitting(true)
+
+    try {
+      const formDataNetlify = new FormData()
+      formDataNetlify.append('form-name', 'contact')
+      Object.keys(formData).forEach(key => {
+        formDataNetlify.append(key, formData[key])
+      })
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formDataNetlify).toString()
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+        setFormData({
+          name: '',
+          email: '',
+          project: '',
+          budget: '',
+          message: ''
+        })
+        
+        setTimeout(() => setSubmitted(false), 5000)
+      } else {
+        throw new Error('Form submission failed')
+      }
+      
+    } catch (error) {
+      console.error('Netlify form error:', error)
+      alert('Sorry, there was an error sending your message. Please try emailing me directly at isaac@isaacezequielsalas.com')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  // Choose which submit handler to use based on your preference
+  const handleSubmit = handleSubmitFormspree // Change this to your preferred method
 
   // Input styling helper
   const getInputClasses = (fieldName) => {
@@ -148,7 +260,30 @@ function Contact() {
               </GlassCard>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            {/* FOR NETLIFY FORMS: Add this hidden form */}
+            <form name="contact" netlify="true" hidden>
+              <input type="text" name="name" />
+              <input type="email" name="email" />
+              <select name="project">
+                <option value="website">Business Website</option>
+                <option value="webapp">Web Application</option>
+                <option value="ecommerce">E-commerce Store</option>
+                <option value="landing">Landing Page</option>
+                <option value="redesign">Website Redesign</option>
+                <option value="other">Other</option>
+              </select>
+              <select name="budget">
+                <option value="under-1k">Under $1,000</option>
+                <option value="1-5k">$1,000 - $5,000</option>
+                <option value="5-10k">$5,000 - $10,000</option>
+                <option value="10-25k">$10,000 - $25,000</option>
+                <option value="25k+">$25,000+</option>
+              </select>
+              <textarea name="message"></textarea>
+            </form>
+
+            {/* Main Contact Form */}
+            <form onSubmit={handleSubmit} className="space-y-6" name="contact">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-white/90 mb-2 drop-shadow-sm">
@@ -358,7 +493,7 @@ function Contact() {
             </GlassCard>
 
             {/* Social Links */}
-            <GlassCard variant="colored">
+            <GlassCard variant="colored" id="connect">
               <h3 className="text-xl font-bold text-white mb-4 drop-shadow-sm">Connect With Me</h3>
               <div className="grid grid-cols-3 gap-3">
                 <a 
